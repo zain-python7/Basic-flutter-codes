@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:test/Widgets/rounded_btn_widget.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+
+
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+  var emailText=TextEditingController();
+  var pass=TextEditingController();
+  var arrColor=[
+    Colors.blue,Colors.red,Colors.yellow,Colors.orange,Colors.green,Colors.purple,Colors.brown
+  ];
+
+
+
+  void _incrementCounter() {
+    setState(() {
+
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var arrNames=["hello","bello","bro","maddi"];
+    var time=DateTime.now();
+
+
+
+    return Scaffold(
+      appBar: AppBar(
+
+
+        backgroundColor: Colors.orange,
+
+        title: Text(widget.title),
+      ),
+      body: RoundedButton(btnName: 'Play',icon:Icon(Icons.play_arrow,size: 30,))
+
+
+
+
+
+
+    );
+  }
+}
+
+
+
+
+
+Create a new file in which you can wrute your coide for widgets or your button like we are doing in it 
+Widgets.Dart Code :
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class RoundedButton extends StatelessWidget{
+  final String btnName;
+  final Icon? icon;
+  final Color? color;
+  final TextStyle? style;
+  final VoidCallback? callback;
+
+  RoundedButton({required this.btnName, this.icon, this.color=Colors.blue, this.style, this.callback});
+
+  @override
+  Widget build(BuildContext context) {
+  return ElevatedButton(onPressed:(
+
+      ){
+    callback!();
+  },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if(icon!=null)...[
+            icon!,
+            const SizedBox(width: 8,)
+          ],
+          Text(btnName,style: style?? const TextStyle(color: Colors.white),)
+        ],
+      ));
+
+  }
+
+}
