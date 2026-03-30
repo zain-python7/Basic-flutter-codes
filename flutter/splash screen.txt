@@ -1,0 +1,39 @@
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:test/main.dart';
+import 'package:test/practice.dart';
+
+class into extends StatefulWidget {
+  @override
+  State<into> createState() => _intoState();
+}
+
+class _intoState extends State<into> {
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => practice()),
+            (route) => false,
+      );
+    });
+  }
+  @override
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+         
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        color: Colors.blue,
+          child: Center(child: Text("Creativity",style: TextStyle(fontSize: 34),)))
+    );
+  }
+}
