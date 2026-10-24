@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
 
       ),
-      home: const MyHomePage(title: "hel;lo",),
+      home: const MyHomePage(title: "hello",),
     );
   }
 }
